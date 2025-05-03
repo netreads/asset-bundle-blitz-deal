@@ -10,7 +10,7 @@ import TestimonialCard from '@/components/TestimonialCard';
 import BundleItemCard from '@/components/BundleItemCard';
 import AssetCategories from '@/components/AssetCategories';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
-import BundleImageCarousel from '@/components/BundleImageCarousel';
+import BundleImageGrid from '@/components/BundleImageGrid';
 
 // Set end date for countdown (1 week from now)
 const endDate = new Date();
@@ -43,6 +43,15 @@ const Index = () => {
             <span className="gradient-text">World's Biggest</span><br/>
             Photography Bundle
           </h1>
+          
+          {/* Bundle Box Image */}
+          <div className="max-w-md mx-auto mb-8">
+            <img 
+              src="/lovable-uploads/9b552453-847e-4cad-b932-a98965973a9f.png" 
+              alt="Photography Bundle Box" 
+              className="w-full h-auto drop-shadow-2xl"
+            />
+          </div>
           
           <p className="text-xl md:text-2xl mb-8 max-w-3xl text-gray-300">
             Get lifetime access to <span className="font-bold text-white">50,000+</span> premium photo & video editing assets worth ₹75,000 for just ₹297
@@ -149,8 +158,8 @@ const Index = () => {
           />
         </div>
         
-        {/* Bundle Image Carousel */}
-        <BundleImageCarousel />
+        {/* Bundle Image Grid (replacing carousel) */}
+        <BundleImageGrid />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
           <AssetCategories 

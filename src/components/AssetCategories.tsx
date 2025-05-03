@@ -10,7 +10,7 @@ type AssetCategoryProps = {
 
 const AssetCategories = ({ title, items, className }: AssetCategoryProps) => {
   return (
-    <div className={cn("bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300", className)}>
+    <div className={cn("bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-bundle-blue hover:shadow-md hover:shadow-bundle-blue/20 transition-all duration-300", className)}>
       <h3 className="text-xl font-bold mb-4 text-white">{title}</h3>
       <div className="space-y-3">
         {items.map((item, index) => (
