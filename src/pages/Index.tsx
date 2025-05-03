@@ -10,6 +10,7 @@ import TestimonialCard from '@/components/TestimonialCard';
 import BundleItemCard from '@/components/BundleItemCard';
 import AssetCategories from '@/components/AssetCategories';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
+import BundleImageCarousel from '@/components/BundleImageCarousel';
 
 // Set end date for countdown (1 week from now)
 const endDate = new Date();
@@ -148,7 +149,10 @@ const Index = () => {
           />
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {/* Bundle Image Carousel */}
+        <BundleImageCarousel />
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
           <AssetCategories 
             title="Lightroom Presets"
             items={[

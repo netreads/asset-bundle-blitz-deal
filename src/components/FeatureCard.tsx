@@ -9,7 +9,7 @@ type FeatureCardProps = {
 
 const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   return (
-    <div className="feature-card">
+    <div className="feature-card hover:border-bundle-blue transition-colors duration-300">
       <div className="flex flex-col items-center text-center">
         <div className="text-bundle-blue mb-4 text-4xl">
           {icon}
