@@ -14,7 +14,7 @@
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 199 89% 48%;
+    --primary: 278 59% 58%; /* Updated to more purple */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 217 91% 60%;
@@ -23,7 +23,7 @@
     --muted: 217 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 278 59% 58%;
+    --accent: 199 89% 48%; /* Updated to cyan */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -53,23 +53,23 @@
 
 @layer components {
   .bundle-container {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8 py-12;
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12;
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-bundle-blue via-bundle-purple to-bundle-pink text-transparent bg-clip-text;
+    @apply bg-gradient-to-r from-bundle-purple via-bundle-blue to-bundle-pink text-transparent bg-clip-text;
   }
   
   .btn-primary {
-    @apply bg-bundle-blue hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply bg-bundle-purple hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-lg;
   }
   
   .btn-secondary {
-    @apply bg-bundle-purple hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300;
+    @apply bg-bundle-blue hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300;
   }
   
   .glow {
-    @apply shadow-[0_0_15px_rgba(14,165,233,0.5)];
+    @apply shadow-[0_0_15px_rgba(139,92,246,0.5)];
   }
   
   .feature-card {
@@ -78,5 +78,24 @@
   
   .section-heading {
     @apply text-3xl md:text-4xl font-bold mb-8 text-center gradient-text;
+  }
+  
+  .step-card {
+    @apply bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-bundle-purple hover:shadow-md hover:shadow-bundle-purple/20 transition-all duration-300 flex flex-col items-center text-center;
+  }
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+  .bundle-container {
+    @apply px-4 py-6;
+  }
+  
+  .section-heading {
+    @apply text-2xl mb-6;
+  }
+  
+  .btn-primary, .btn-secondary {
+    @apply py-2 px-6 text-sm;
   }
 }

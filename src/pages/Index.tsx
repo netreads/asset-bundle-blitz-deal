@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
@@ -11,6 +10,8 @@ import BundleItemCard from '@/components/BundleItemCard';
 import AssetCategories from '@/components/AssetCategories';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import BundleImageGrid from '@/components/BundleImageGrid';
+import StepCard from '@/components/StepCard';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Set end date for countdown (1 week from now)
 const endDate = new Date();
@@ -18,6 +19,7 @@ endDate.setDate(endDate.getDate() + 7);
 
 const Index = () => {
   const { toast } = useToast();
+  const isMobile = useIsMobile();
   
   const handleBuyNow = () => {
     toast({
@@ -32,7 +34,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <header className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-bundle-blue/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-bundle-purple/20 to-transparent"></div>
         
         <div className="relative bundle-container flex flex-col items-center text-center">
           <div className="bg-bundle-red text-white px-4 py-2 rounded-full inline-flex items-center mb-8 animate-pulse-glow">
@@ -206,6 +208,89 @@ const Index = () => {
         </div>
       </section>
 
+      {/* How To Buy Section - New */}
+      <section className="bg-gray-900 py-16">
+        <div className="bundle-container">
+          <h2 className="section-heading">How To Buy</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <StepCard 
+              icon={
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <path d="M7 7h.01"></path>
+                  <path d="M11 7h.01"></path>
+                  <path d="M15 7h.01"></path>
+                  <path d="M7 11h.01"></path>
+                  <path d="M11 11h.01"></path>
+                  <path d="M15 11h.01"></path>
+                  <path d="M7 15h.01"></path>
+                  <path d="M11 15h.01"></path>
+                  <path d="M15 15h.01"></path>
+                </svg>
+              }
+              step={1}
+              title="Click Buy Now"
+              description="Click on any 'Buy Now' Button and you will redirect to checkout page."
+            />
+            
+            <StepCard 
+              icon={
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2H2v10h10V2Z"></path>
+                  <path d="m4.833 8.914 2.536-2.536L8.914 7.5"></path>
+                  <path d="M12 12v10h10V12H12Z"></path>
+                  <path d="m16.586 18.243 2.121 2.121 2.121-2.121"></path>
+                </svg>
+              }
+              step={2}
+              title="Complete Payment"
+              description="Fill your correct details and complete payment securely."
+            />
+            
+            <StepCard 
+              icon={
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              }
+              step={3}
+              title="Download Assets"
+              description="You will receive an email with PDF containing all product download links."
+            />
+          </div>
+        </div>
+      </section>
+      
+      {/* Your Satisfaction Section - New */}
+      <section className="bundle-container">
+        <div className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-bundle-purple hover:shadow-md hover:shadow-bundle-purple/20 transition-all duration-300">
+          <div className="flex flex-col md:flex-row">
+            <div className="md:w-1/2 p-8">
+              <h2 className="text-3xl font-bold mb-6 gradient-text">Your Satisfaction is our No.1 Priority!</h2>
+              <p className="text-gray-300 mb-6 text-lg">
+                I know it's hard out there, editing every single photo from scratch could be daunting at times. Moreover, it's the time we lose that we could've spent with our loved ones.
+              </p>
+              <p className="text-gray-300 mb-6 text-lg">
+                That is why we created this collection — we spent a whole year building and collecting drag-n-drop templates, so that you stop worrying about the work and start focusing on what matters.
+              </p>
+              <button onClick={handleBuyNow} className="btn-primary mt-2">
+                GET INSTANT ACCESS NOW
+              </button>
+            </div>
+            <div className="md:w-1/2">
+              <img 
+                src="/lovable-uploads/bbec84db-4f96-4e7f-8bd1-d43b154288fb.png" 
+                alt="Photography Editing Made Easy" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Value Proposition */}
       <section className="bg-gray-900 py-16">
         <div className="bundle-container">
@@ -227,9 +312,7 @@ const Index = () => {
             <FeatureCard 
               icon={
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2 2 7l10 5 10-5-10-5Z"></path>
-                  <path d="m2 17 10 5 10-5"></path>
-                  <path d="m2 12 10 5 10-5"></path>
+                  <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"></path>
                 </svg>
               }
               title="Massive Value"
@@ -368,7 +451,7 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-gradient-to-br from-bundle-blue/20 via-bundle-purple/20 to-bundle-pink/20 py-16">
+      <section className="bg-gradient-to-br from-bundle-purple/20 via-bundle-blue/20 to-bundle-pink/20 py-16">
         <div className="bundle-container text-center">
           <h2 className="text-4xl font-bold mb-6 gradient-text">Don't Miss This Opportunity</h2>
           
