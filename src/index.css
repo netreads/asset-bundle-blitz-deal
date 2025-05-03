@@ -57,11 +57,11 @@
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-bundle-purple via-bundle-blue to-bundle-pink text-transparent bg-clip-text;
+    @apply bg-gradient-to-r from-bundle-purple via-bundle-pink to-bundle-orange text-transparent bg-clip-text;
   }
   
   .btn-primary {
-    @apply bg-bundle-purple hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply bg-gradient-to-r from-bundle-purple to-bundle-pink hover:from-bundle-pink hover:to-bundle-purple text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-lg shadow-md shadow-bundle-purple/20;
   }
   
   .btn-secondary {
@@ -73,7 +73,7 @@
   }
   
   .feature-card {
-    @apply bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300 border border-gray-700;
+    @apply bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-700;
   }
   
   .section-heading {
@@ -81,7 +81,7 @@
   }
   
   .step-card {
-    @apply bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-bundle-purple hover:shadow-md hover:shadow-bundle-purple/20 transition-all duration-300 flex flex-col items-center text-center;
+    @apply bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-bundle-purple hover:shadow-md hover:shadow-bundle-purple/20 transition-all duration-300 flex flex-col items-center text-center;
   }
 }
 
@@ -96,6 +96,54 @@
   }
   
   .btn-primary, .btn-secondary {
-    @apply py-2 px-6 text-sm;
+    @apply py-2.5 px-6 text-sm;
   }
+  
+  .feature-card, .step-card {
+    @apply p-5;
+  }
+  
+  h1 {
+    @apply text-3xl !important;
+  }
+  
+  h2 {
+    @apply text-2xl !important;
+  }
+  
+  h3 {
+    @apply text-xl !important;
+  }
+  
+  .grid {
+    @apply gap-4 !important;
+  }
+}
+
+/* Additional animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Improved card hover effects */
+.hover-card-effect {
+  @apply transition-all duration-300 hover:shadow-xl hover:shadow-bundle-purple/20 hover:-translate-y-1;
+}
+
+/* Premium gradient backgrounds */
+.premium-gradient {
+  @apply bg-gradient-to-br from-bundle-purple/20 via-transparent to-bundle-pink/20;
+}
+
+.premium-card {
+  @apply bg-gray-800/90 backdrop-blur-sm border border-gray-700 hover:border-bundle-purple rounded-xl shadow-lg;
 }
